@@ -4,11 +4,25 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const { mongo } = require('./server/mongo-connect'); 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// playground starts
+
+    var data = {
+      id : 10
+    };
+    var secret = 'xyz';
+    var token = jwt.sign(data,secret);
+    console.log(token);
+    var decoded = jwt.verify(token,secret);
+    console.log(JSON.stringify(decoded, undefined, 2));
+// playground ends
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

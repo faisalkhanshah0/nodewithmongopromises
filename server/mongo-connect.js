@@ -41,7 +41,8 @@ mongo.then((db) => {
     // });
     return fetch(db);
 }).then((docs) => {
-         console.log(JSON.stringify(docs, undefined, 2));
+        //  console.log(JSON.stringify(docs, undefined, 2));
+        console.log('yes');
      }).catch((e) => {
  console.log('inside first promise error part : ',e);
 });
@@ -49,5 +50,5 @@ mongo.then((db) => {
 
 
 module.exports = {
-    MongoClient
+    mongo
 }
